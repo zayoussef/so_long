@@ -6,11 +6,11 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 18:55:36 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:36:01 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 static int	ft_tabsize(const char *str, char c)
 {

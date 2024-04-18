@@ -6,34 +6,36 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 18:54:11 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:35:52 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr(char *s, int fd)
 {
 	if (fd < 0 || !s)
 		return ;
 	write(fd, s, ft_strlen(s));
 }
 
-int	ft_strchr(char *s, char c)
+char	*ft_strchr(char *s, int c)
 {
 	int	i;
 
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
-			return (1);
+		if (s[i] == (char)c)
+			return (&(s)[i]);
 		i++;
 	}
-	return (0);
+	if (s[i] == (char)c)
+		return (&s[i]);
+	return (NULL);
 }
 
-int	ft_strcmp(const char *s1, const char *s2)
+int		ft_strcmp(char *s1, char *s2)
 {
 	size_t	i;
 

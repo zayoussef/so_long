@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 19:15:43 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:44:11 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ typedef struct s_game
 }	t_game;
 
 /* --------------- Libft --------------- */
-char	*ft_strchr(char *s, char c);
+char	*ft_strchr(char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen( char *s);
 char	*ft_itoa(int n);
 void 	ft_putnbr(int nb);
-void	ft_putstr_fd(char *s, int fd);
-int		ft_strcmp(char *str1, char *str2);
+void	ft_putstr(char *s, int fd);
+int		ft_strcmp(char *s1, char *s2);
 char	*ft_strdup( char *s);
 char	**ft_split(char const *s, char c);
 
@@ -71,12 +71,12 @@ int count_size(char **map, char c);
 int map_elements(char **map);
 int validation_path(char **map);
 int is_still(char **map);
-void check_valid_path(char **map, int x, int y);
-char **ft_copy_map(char **map)
+void check_valid_path(char **map, int x, int y, int max_x, int max_y);
+char **ft_copy_map(char **map);
 int validation_format(char **map);
 int is_rectangular(char **map);
 int is_closed(char **map);
-t_pos find_position(char **map, char c);
+t_pos *find_position(char **map, char c);
 t_map *map_rendering(char *path);
 char **map_validation(char *path);
 char **reading_map(char *path);

@@ -6,11 +6,11 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/17 15:03:33 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:37:59 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int map_elements(char **map)
 {
@@ -47,7 +47,7 @@ int count_size(char **map, char c)
         j = 0;
         while (map[i][j])
         {
-            if (map[i][j] == c);
+            if (map[i][j] == c)
                 count++;
             j++;
         }

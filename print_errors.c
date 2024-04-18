@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 19:15:16 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/18 20:25:09 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void function_errors(int index)
 {
     if (index == 1)
-		ft_putstr("Invalid arguments : Please give one map (.ber)", 2);
+		ft_putstr("Invalid arguments : Please give one map (.ber)\n", 2);
 	else if (index == 2)
 		ft_putstr("Open fail : Can't open the giving file", 2);
 	else if (index == 3)
@@ -27,13 +27,13 @@ void function_errors(int index)
 void maps_errors(int index)
 {
     if (index == 1)
-		ft_putstr("Invalid map extention : Please enter valid map (.ber)", 2);
+		ft_putstr("Invalid map extention : Please enter valid map (.ber)\n", 2);
 	else if (index == 2)
-		ft_putstr("Invalid map content : Extra or missing map characteres", 2);
+		ft_putstr("Invalid map content : Extra or missing map characteres\n", 2);
 	else if (index == 3)
-		ft_putstr("Invalid  map format : Map must be closed and rectangle ", 2);
+		ft_putstr("Invalid  map format : Map must be closed and rectangle\n", 2);
 	else if (index == 4)
-		ft_putstr("Invalid map path : Player can't exit or collect all", 2);
+		ft_putstr("Invalid map path : Player can't exit or collect all\n", 2);
 	else if (index == 5)
-		ft_putstr("Invalid map extention : Because it is a hidden file", 2);
+		ft_putstr("Invalid map extention : Because it is a hidden file\n", 2);
 }
