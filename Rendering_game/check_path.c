@@ -6,7 +6,7 @@
 /*   By: youssef <youssef@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 17:13:38 by youssef          ###   ########.fr       */
+/*   Updated: 2024/04/18 17:16:44 by youssef          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int validation_path(char **map)
 
     player = find_position(map, 'P');
     copy_map = ft_copy_map(map);
-    check_valid_path(copy_map, player->x, player->y)
+    check_valid_path(copy_map, player->x, player->y);
 	if (!loop_map(copy_map))
     {
 		map_errors(4);
