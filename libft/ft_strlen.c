@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   function_libft.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 15:15:34 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/06 04:03:50 by yozainan         ###   ########.fr       */
+/*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
+/*   Updated: 2024/04/18 19:07:22 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,10 @@ size_t	ft_strlen( char *s)
 	return (i);
 }
 
-
-
-int	ft_strcmp(char *str1, char *str2)
+void ft_putnbr(int nb)
 {
-	int	i;
-
-	i = 0;
-	while (str1[i] && str2[i] && (str1[i] == str2[i]))
-		i++;
-	return (str1[i] - str2[i]);
+    if (nb >= 10)
+        putnbr(nb / 10);
+    char f = nb % 10 + 48;
+    write (1, &f, 1);
 }

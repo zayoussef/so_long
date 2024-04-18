@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youssef <youssef@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 17:16:44 by youssef          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:10:50 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
- char **ft_copy_map(char **map)
- {
+char **ft_copy_map(char **map)
+{
     char    **copy_map;
     int     i;
 
@@ -51,7 +51,7 @@ void check_valid_path(char **map, int x, int y)
     check_valid_path(map, x + 1, y);
 }
 
-int loop_maop(char **map)
+int is_still(char **map)
 {
     int i;
     int j;
@@ -79,7 +79,7 @@ int validation_path(char **map)
     player = find_position(map, 'P');
     copy_map = ft_copy_map(map);
     check_valid_path(copy_map, player->x, player->y);
-	if (!loop_map(copy_map))
+	if (!is_still(copy_map))
     {
 		map_errors(4);
         free_map(copy_map);

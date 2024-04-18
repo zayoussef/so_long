@@ -1,48 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_rendering.c                                    :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 19:14:32 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:00:52 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void free_map(char **map)
+static size_t	ft_len_digit(long n)
 {
-    int i;
+	size_t	count;
 
-    i = 0;
-    while (map[i])
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
+	count = 0;
+	if (n < 0)
+	{
+		n *= -1;
+		count++;
+	}
+	if (n == 0)
+		count++;
+	while (n > 0)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
 }
 
-t_map *map_rendering(char *path)
+char	*ft_itoa(int n)
 {
-    t_map *map;
-    int     i;
+	long	nbr;
+	int		i;
+	char	*str;
 
-    i = 0;
-    map = malloc(sizeof(t_map));
-    if (!map)
-    {
-        function_errors(3);
-        exit(EXIT_FAILURE);
-    }
-    map->map = map_validation(path);
-    map->x = ft_strlen(map->map[0]);
-    while(map->map[i])
-        i++;
-    map->y = i;
-    map->c = count_size(map->map, 'C');
-    map->player = find_position(map->map, 'P');
-    return (map);
+	nbr = n;
+	i = ft_len_digit(n);
+	str = (char *)malloc(sizeof(char) * (i + 1));
+	if (!str)
+		return (NULL);
+	str[i--] = '\0';
+	if (nbr == 0)
+		str[0] = 48;
+	if (nbr < 0)
+	{
+		str[0] = '-';
+		nbr *= -1;
+	}
+	while (nbr > 0)
+	{
+		str[i--] = (nbr % 10) + 48;
+		nbr /= 10;
+	}
+	return (str);
 }

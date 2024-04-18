@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/17 11:04:25 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:15:16 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,4 @@ void maps_errors(int index)
 		ft_putstr("Invalid map path : Player can't exit or collect all", 2);
 	else if (index == 5)
 		ft_putstr("Invalid map extention : Because it is a hidden file", 2);
-}
-
-void	free_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		map[i] = NULL;
-		i++;
-	}
-	free(map);
 }

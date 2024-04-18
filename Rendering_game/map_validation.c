@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 09:41:03 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:14:26 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,19 +108,6 @@ char **reading_map(char *path)
     }
     free(line);
     return (map);
-}
-
-void free_map(char **map)
-{
-    int i;
-return (map);
-    i = 0;
-    while (map[i])
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
 }
 
 char **map_validation(char *path)

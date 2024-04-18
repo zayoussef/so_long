@@ -1,28 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 15:15:34 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/17 11:00:57 by yozainan         ###   ########.fr       */
+/*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
+/*   Updated: 2024/04/18 18:54:11 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*ft_strchr(char *s, char c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
-		return (NULL);
-	while (*s != '\0')
+	if (fd < 0 || !s)
+		return ;
+	write(fd, s, ft_strlen(s));
+}
+
+int	ft_strchr(char *s, char c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		if (*s == c)
-			return (s);
-		s++;
+		if (s[i] == c)
+			return (1);
+		i++;
 	}
-	return (NULL);
+	return (0);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		i++;
+	}
+	return (0);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -67,30 +89,4 @@ char	*ft_strdup( char *s)
 	}
 	dup[i] = '\0';
 	return (dup);
-}
-char	*ft_strjoin_ft(char *s1, char *s2)
-{
-	char	*join;
-	int		j;
-	int		i;
-
-	if (!s1)
-	{
-		s1 = malloc(1);
-		s1[0] = '\0';
-	}
-	if (!s2)
-		return (s1);
-	j = 0;
-	join = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!join)
-		return (NULL);
-	i = -1;
-	while (s1[++i])
-		join[i] = s1[i];
-	while (s2[j])
-		join[i++] = s2[j++];
-	join[i] = '\0';
-	free(s1);
-	return (join);
 }
