@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   find_position.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/17 11:30:28 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:43:22 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int ac, char **av)
+t_pos find_position(char **map, char c)
 {
-    t_map *map;
-    
-    if (ac != 2)
+    t_pos   *p;
+    int     i;
+    int     j;
+
+    p = malloc(sizeof(t_pos));
+    i = 0;
+    while (map[i])
     {
-        function_errors(1);
-        return (0);
+        j = 0;
+        while (map[i][j])
+        {
+            if (map[i][j] == c)
+            {
+                p->x = j;
+                p->y = i;
+                return (p);
+            }
+            j++;
+        }
+        i++;
     }
-    map = map_rendering(av[1]);
+    return (NULL);
 }

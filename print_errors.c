@@ -6,11 +6,11 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/06 09:20:54 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/17 11:04:25 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include "so_long.h"
 
 void function_errors(int index)
 {
