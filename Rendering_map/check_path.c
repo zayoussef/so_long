@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/19 11:41:47 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:57:55 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	check_valid_path(char **map, int x, int y)
 		map[y][x] = 'Z';
 		return ;
 	}
+	check_valid_path(map, x + 1, y);
+	check_valid_path(map, x - 1, y);
 	check_valid_path(map, x, y + 1);
 	check_valid_path(map, x, y - 1);
-	check_valid_path(map, x - 1, y);
-	check_valid_path(map, x + 1, y);
 }
 
 int	is_still(char **map)

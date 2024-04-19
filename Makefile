@@ -7,8 +7,8 @@ CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 CC = cc 
 
 SRC = so_long.c print_errors.c libft/ft_itoa.c libft/ft_putstr.c libft/ft_split.c libft/ft_strlen.c \
-	Rendering_game/check_map.c  Rendering_game/check_path.c Rendering_game/check_shape.c Rendering_game/find_position.c \
-	Rendering_game/map_rendering.c Rendering_game/map_validation.c
+	Rendering_map/check_map.c  Rendering_map/check_path.c Rendering_map/check_shape.c Rendering_map/find_position.c \
+	Rendering_map/map_rendering.c Rendering_map/map_validation.c
 
 SRC_BONUS = pipex_bonus.c utils_bonus.c libft/ft_strlen.c libft/ft_strncmp.c libft/ft_strnstr.c libft/ft_strjoin.c \
 	libft/ft_split.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c libft/ft_putendl_fd.c utils_1_bonus.c libft/ft_strchr.c \

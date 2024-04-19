@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 19:37:38 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/19 16:30:25 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,18 @@ int	check_extension(char *path)
 char	**get_map(char *str)
 {
 	char	**map;
+	int		i;
 
-	if (str[0] == '\n' || str[ft_strlen(str) - 1] == '\n')
+	i = 0;
+	while (str[i])
 	{
-		maps_errors(2);
-		exit(EXIT_FAILURE);
+		if ((str[i] == '\n' && str[i + 1] == '\n') || ((str[0] == '\n' )
+				|| str[ft_strlen(str) - 1] == '\n'))
+		{
+			maps_errors(2);
+			exit(EXIT_FAILURE);
+		}
+		i++;
 	}
 	map = ft_split(str, '\n');
 	if (!map)
@@ -100,6 +107,7 @@ char	**reading_map(char *path)
 		function_errors(4);
 		exit(EXIT_FAILURE);
 	}
+	close(fd);
 	map = get_map(line);
 	if (!map)
 	{
