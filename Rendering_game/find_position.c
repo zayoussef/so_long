@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-t_pos *find_position(char **map, char c)
+t_pos	*find_position(char **map, char c)
 {
 	t_pos	*p;
 	int		i;

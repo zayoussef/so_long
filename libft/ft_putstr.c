@@ -35,7 +35,7 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
-int		ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	size_t	i;
 
@@ -75,7 +75,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-char	*ft_strdup( char *s)
+char	*ft_strdup(char *s)
 {
 	size_t	i;
 	char	*dup;

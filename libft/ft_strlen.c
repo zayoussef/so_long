@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-size_t	ft_strlen( char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	i;
 
@@ -22,10 +22,12 @@ size_t	ft_strlen( char *s)
 	return (i);
 }
 
-void ft_putnbr(int nb)
+void	ft_putnbr(int nb)
 {
-    if (nb >= 10)
-        ft_putnbr(nb / 10);
-    char f = nb % 10 + 48;
-    write (1, &f, 1);
+	char	f;
+
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	f = nb % 10 + 48;
+	write(1, &f, 1);
 }

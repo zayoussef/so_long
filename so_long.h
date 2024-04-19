@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef SO_LONG_H
+#ifndef SO_LONG_H
 # define SO_LONG_H
 
 # ifndef BUFFER_SIZE
@@ -30,9 +30,9 @@
 /* ------------ Structures ------------ */
 typedef struct s_pos
 {
-	int	x;
-	int	y;
-}	t_pos;
+	int		x;
+	int		y;
+}			t_pos;
 
 typedef struct s_map
 {
@@ -41,7 +41,7 @@ typedef struct s_map
 	int		y;
 	int		c;
 	t_pos	*player;
-}	t_map;
+}			t_map;
 
 typedef struct s_game
 {
@@ -51,42 +51,42 @@ typedef struct s_game
 	int		size;
 	int		moves;
 	t_map	*map;
-}	t_game;
+}			t_game;
 
 /* --------------- Libft --------------- */
-char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlen( char *s);
-char	*ft_itoa(int n);
-void 	ft_putnbr(int nb);
-void	ft_putstr(char *s, int fd);
-int		ft_strcmp(char *s1, char *s2);
-char	*ft_strdup( char *s);
-char	**ft_split(char const *s, char c);
+char		*ft_strchr(char *s, int c);
+char		*ft_strjoin(char *s1, char *s2);
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t		ft_strlen(char *s);
+char		*ft_itoa(int n);
+void		ft_putnbr(int nb);
+void		ft_putstr(char *s, int fd);
+int			ft_strcmp(char *s1, char *s2);
+char		*ft_strdup(char *s);
+char		**ft_split(char const *s, char c);
 
 /* ------------ Rendering_game ------------ */
-int validate_content(char **map);
-int count_size(char **map, char c);
-int map_elements(char **map);
-int validation_path(char **map);
-int is_still(char **map);
-void check_valid_path(char **map, int x, int y);
-char **ft_copy_map(char **map);
-int validation_format(char **map);
-int is_rectangular(char **map);
-int is_closed(char **map);
-t_pos *find_position(char **map, char c);
-t_map *map_rendering(char *path);
-char **map_validation(char *path);
-char **reading_map(char *path);
-void free_map(char **map);
-char *reading(int fd);
-char	**get_map(char *str);
-int check_extension(char *path);
+int			validate_content(char **map);
+int			count_size(char **map, char c);
+int			map_elements(char **map);
+int			validation_path(char **map);
+int			is_still(char **map);
+void		check_valid_path(char **map, int x, int y);
+char		**ft_copy_map(char **map);
+int			validation_format(char **map);
+int			is_rectangular(char **map);
+int			is_closed(char **map);
+t_pos		*find_position(char **map, char c);
+t_map		*map_rendering(char *path);
+char		**map_validation(char *path);
+char		**reading_map(char *path);
+void		free_map(char **map);
+char		*reading(int fd);
+char		**get_map(char *str);
+int			check_extension(char *path);
 
 /* ------------ Errors ------------ */
-void maps_errors(int index);
-void function_errors(int index);
+void		maps_errors(int index);
+void		function_errors(int index);
 
 #endif
