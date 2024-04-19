@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 21:51:07 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:08:12 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,22 @@ char **ft_copy_map(char **map)
     return (copy_map);
  }
 
-void check_valid_path(char **map, int x, int y, int max_x, int max_y)
+void check_valid_path(char **map, int x, int y)
 {
-    if (x < 0 || y < 0 || x >= max_x || y >= max_y || map[x][y] == '\0' 
-    || map[x][y] == '1' || map[x][y] == 'Z')
+    if (x <= 0 || y <= 0 
+    || map[y][x] == '1' || map[y][x] == 'Z')
         return ;
-    if (map[x][y] == '0')
-        map[x][y] = 'Z';
-    if (map[x][y] == 'E')
+    if (map[y][x] == '0' || map[y][x] == 'C')
+        map[y][x] = 'Z';
+    if (map[y][x] == 'E')
     {
-        map[x][y] = 'Z';
+        map[y][x] = 'Z';
         return ;
     }
-    check_valid_path(map, x, y + 1, max_x, max_y);
-    check_valid_path(map, x, y - 1, max_x, max_y);
-    check_valid_path(map, x - 1, y, max_x, max_y);
-    check_valid_path(map, x + 1, y, max_x, max_y);
+    check_valid_path(map, x, y + 1);
+    check_valid_path(map, x, y - 1);
+    check_valid_path(map, x - 1, y);
+    check_valid_path(map, x + 1, y);
 }
 
 int is_still(char **map)
@@ -77,13 +77,14 @@ int validation_path(char **map)
     char **copy_map;
     int max_x, max_y;
 
-    player = find_position(map, 'P');
+    player = find_position(map, 'P');//
     copy_map = ft_copy_map(map);
     max_x = 0;
     while (copy_map[max_x])
         max_x++;
     max_y = ft_strlen(copy_map[0]);
-    check_valid_path(copy_map, player->x, player->y, max_x, max_y);
+    check_valid_path(copy_map, player->x, player->y);
+    free(player);
 	if (!is_still(copy_map))
     {
 		maps_errors(4);
