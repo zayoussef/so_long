@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/19 11:20:42 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:41:47 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,9 @@ int	validation_path(char **map)
 {
 	t_pos	*player;
 	char	**copy_map;
-	int		max_x;
-	int		max_y;
 
 	player = find_position(map, 'P');
 	copy_map = ft_copy_map(map);
-	max_x = 0;
-	while (copy_map[max_x])
-		max_x++;
-	max_y = ft_strlen(copy_map[0]);
 	check_valid_path(copy_map, player->x, player->y);
 	free(player);
 	if (!is_still(copy_map))
