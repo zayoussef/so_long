@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/19 11:02:39 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/20 21:01:40 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 /* ------ C Library ------ */
 # include <fcntl.h>
 # include <limits.h>
+# include <mlx.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -55,6 +56,7 @@ typedef struct s_game
 
 /* --------------- Libft --------------- */
 char		*ft_strchr(char *s, int c);
+char		*ft_strrchr(char *s, int c);
 char		*ft_strjoin(char *s1, char *s2);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlen(char *s);
@@ -65,7 +67,7 @@ int			ft_strcmp(char *s1, char *s2);
 char		*ft_strdup(char *s);
 char		**ft_split(char const *s, char c);
 
-/* ------------ Rendering_game ------------ */
+/* ------------ Rendering_maps ------------ */
 int			validate_content(char **map);
 int			count_size(char **map, char c);
 int			map_elements(char **map);
@@ -84,6 +86,9 @@ void		free_map(char **map);
 char		*reading(int fd);
 char		**get_map(char *str);
 int			check_extension(char *path);
+
+/* ------------ Rendering_game ------------ */
+t_game		setting_game(t_map *map);
 
 /* ------------ Errors ------------ */
 void		maps_errors(int index);

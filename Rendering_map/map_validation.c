@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/19 16:30:25 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/20 22:32:20 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,30 @@
 
 int	check_extension(char *path)
 {
-	char	*dot;
-	int		fd;
+	char	*tmp;
 
-	fd = open(path, O_RDONLY);
-	if (fd < 0)
+	if (ft_strrchr(path, '/'))
 	{
-		function_errors(2);
-		exit(EXIT_FAILURE);
+		tmp = ft_strrchr(path, '/') + 1;
+		if ((tmp[0] && tmp[0] == '.') || !tmp[0])
+		{
+			ft_putstr("Invalid map extention\n", 2);
+			return (0);
+		}
 	}
-	close(fd);
-	dot = ft_strchr(path, '.');
-	if (!dot || dot == path)
+	if (path[0] && path[0] == '.')
 	{
 		maps_errors(5);
 		return (0);
 	}
-	if (ft_strcmp(dot, ".ber"))
+	tmp = path + ft_strlen(path) - 4;
+	if (ft_strcmp(tmp, ".ber") == 0)
+		return (1);
+	else
 	{
-		function_errors(1);
+		maps_errors(1);
 		return (0);
 	}
-	return (1);
 }
 
 char	**get_map(char *str)
