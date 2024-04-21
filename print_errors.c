@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/18 20:25:09 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/21 09:33:49 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	function_errors(int index)
 	if (index == 1)
 		ft_putstr("Invalid arguments : Please give one map (.ber)\n", 2);
 	else if (index == 2)
-		ft_putstr("Open fail : Can't open the giving file", 2);
+		ft_putstr("Open fail : Can't open the giving file\n", 2);
 	else if (index == 3)
-		ft_putstr("Malloc fail : unexpected fail during memory allocation", 2);
+		ft_putstr("Malloc fail: unexpected fail during memory allocation\n", 2);
 	else if (index == 4)
-		ft_putstr("Read fail : Can't read from giving file", 2);
+		ft_putstr("Read fail : Can't read from giving file\n", 2);
 }
 
 void	maps_errors(int index)

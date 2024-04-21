@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/20 21:01:40 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/21 17:54:17 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
 # endif
+
+/* ------ display Macros ------ */
+#define MAX_WIDTH 2560
+#define MAX_HEIGHT 1440
 
 /* ------ C Library ------ */
 # include <fcntl.h>
@@ -51,6 +55,7 @@ typedef struct s_game
 	void	*img;
 	int		size;
 	int		moves;
+	int		direction;
 	t_map	*map;
 }			t_game;
 
@@ -61,6 +66,7 @@ char		*ft_strjoin(char *s1, char *s2);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlen(char *s);
 char		*ft_itoa(int n);
+void ft_swap(char *a, char *b);
 void		ft_putnbr(int nb);
 void		ft_putstr(char *s, int fd);
 int			ft_strcmp(char *s1, char *s2);
@@ -73,7 +79,7 @@ int			count_size(char **map, char c);
 int			map_elements(char **map);
 int			validation_path(char **map);
 int			is_still(char **map);
-void		check_valid_path(char **map, int x, int y);
+void		check_valid_path(char **map, int x, int y, int max_x, int max_y);
 char		**ft_copy_map(char **map);
 int			validation_format(char **map);
 int			is_rectangular(char **map);
@@ -88,8 +94,10 @@ char		**get_map(char *str);
 int			check_extension(char *path);
 
 /* ------------ Rendering_game ------------ */
-t_game		setting_game(t_map *map);
-
+t_game		*setting_game(t_map *map);
+void display_game(t_game *so_long);
+int	event(int key, void	*param);
+int	free_exit(void *param);
 /* ------------ Errors ------------ */
 void		maps_errors(int index);
 void		function_errors(int index);

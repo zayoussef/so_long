@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/20 21:36:13 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/21 14:36:49 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,13 @@ char	*ft_strrchr(char *s, int c)
 		i--;
 	}
 	return (NULL);
+}
+
+void ft_swap(char *a, char *b)
+{
+	char	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
