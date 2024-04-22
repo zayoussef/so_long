@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/22 09:27:11 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:51:13 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int	main(int ac, char **av)
 	so_long = setting_game(map);
 	display_game(so_long);
 	mlx_hook(so_long->win, 2, 0, &event, so_long);
-	mlx_hook(so_long->win, 17, 0, free_exit, so_long);
+	mlx_hook(so_long->win, 17, 0, free_success_exit, so_long);
 	mlx_loop(so_long->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/22 09:44:34 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:16:11 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,8 @@ void		right(t_game *so_long);
 void		right_action(t_game *so_long);
 
 /* ------------ free_memory ------------ */
-int			free_exit(void *param);
+int			free_success_exit(void *param);
+int			free_failure_exit(void *param);
 void		free_map(char **map);
 
 /* ------------ Errors ------------ */

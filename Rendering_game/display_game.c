@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/22 09:33:24 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:40:41 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	event(int key, void *param)
 		left(game);
 	else if (key == 2 || key == 124)
 		right(game);
-	else if (key == 53 || key == 17)
-		free_exit(game);
+	else if (key == 53)
+		free_success_exit(game);
 	mlx_clear_window(game->mlx, game->win);
 	display_game(game);
 	mlx_loop(game->mlx);
@@ -73,8 +73,8 @@ void	draw_textures(t_game *so_long, int x, int y)
 			&so_long->size);
 	if (!so_long->img)
 	{
-		ft_putstr("Don't touch my file plz!\n", 2);
-		exit(EXIT_FAILURE);
+		ft_putstr("Invalid file xpm content\n", 2);
+		free_failure_exit(so_long);
 	}
 	mlx_put_image_to_window(so_long->mlx, so_long->win, so_long->img, y * 64, x
 		* 64);

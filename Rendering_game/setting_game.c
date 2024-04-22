@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/22 10:17:36 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:40:59 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ t_game	*setting_game(t_map *map)
 		exit(EXIT_FAILURE);
 	}
 	so_long->mlx = mlx_init();
-	if (!so_long->mlx)
-	{
-		ft_putstr("Mlx fail : Can't init mlx\n", 2);
-		exit(EXIT_FAILURE);
-	}
 	if (map->x * 64 > MAX_WIDTH || map->y * 64 > MAX_HEIGHT)
 	{
 		ft_putstr("Map too big\n", 2);
+		free(so_long);
+		free_map(map->map);
+		free(map->player);
+		free(map);
 		exit(EXIT_FAILURE);
 	}
 	so_long->win = mlx_new_window(so_long->mlx, map->x * 64, map->y * 64,
