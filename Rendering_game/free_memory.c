@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   free_memory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/22 09:27:11 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:55:54 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int ac, char **av)
+int	free_exit(void *param)
 {
-	t_map	*map;
-	t_game	*so_long;
+	t_game	*game;
 
-	if (ac != 2)
+	game = (t_game *)param;
+	free(game->map->player);
+	free_map(game->map->map);
+	free(game->map);
+	free(game);
+	exit(EXIT_SUCCESS);
+	return (1);
+}
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
 	{
-		function_errors(1);
-		return (0);
+		free(map[i]);
+		i++;
 	}
-	map = map_rendering(av[1]);
-	if (!map)
-		exit(EXIT_FAILURE);
-	so_long = setting_game(map);
-	display_game(so_long);
-	mlx_hook(so_long->win, 2, 0, &event, so_long);
-	mlx_hook(so_long->win, 17, 0, free_exit, so_long);
-	mlx_loop(so_long->mlx);
+	free(map);
 }

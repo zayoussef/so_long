@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/21 16:21:30 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/22 10:12:07 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ t_pos	*find_position(char **map, char c)
 		{
 			if (map[i][j] == c)
 			{
-				p->x = i;//
-				p->y = j;//
+				p->x = i;
+				p->y = j;
 				return (p);
 			}
 			j++;

@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/21 17:12:06 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:55:12 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ char	**ft_copy_map(char **map)
 	return (copy_map);
 }
 
-void	check_valid_path(char **map, int x, int y, int max_x, int max_y)
+void	check_valid_path(char **map, int x, int y)
 {
-	if (x <= 0 || y <= 0 || map[x][y] == '1' || map[x][y] == 'Z' || x >= max_x || y >= max_y)
+	if (x <= 0 || y <= 0 || map[x][y] == '1' || map[x][y] == 'Z')
 		return ;
 	if (map[x][y] == '0' || map[x][y] == 'C')
 		map[x][y] = 'Z';
@@ -44,10 +44,10 @@ void	check_valid_path(char **map, int x, int y, int max_x, int max_y)
 		map[x][y] = 'Z';
 		return ;
 	}
-	check_valid_path(map, x + 1, y, max_x, max_y);
-	check_valid_path(map, x - 1, y, max_x, max_y);
-	check_valid_path(map, x, y + 1, max_x, max_y);
-	check_valid_path(map, x, y - 1, max_x, max_y);
+	check_valid_path(map, x + 1, y);
+	check_valid_path(map, x - 1, y);
+	check_valid_path(map, x, y + 1);
+	check_valid_path(map, x, y - 1);
 }
 
 int	is_still(char **map)
@@ -74,16 +74,10 @@ int	validation_path(char **map)
 {
 	t_pos	*player;
 	char	**copy_map;
-	int max_x;
-	int max_y;
 
 	player = find_position(map, 'P');
 	copy_map = ft_copy_map(map);
-	max_y = ft_strlen(map[0]);
-	max_x = 0;
-	while (map[max_x])
-		max_x++;
-	check_valid_path(copy_map, player->x, player->y, max_x, max_y);
+	check_valid_path(copy_map, player->x, player->y);
 	free(player);
 	if (!is_still(copy_map))
 	{

@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/21 09:35:03 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/22 10:57:13 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_extension(char *path)
 			return (0);
 		}
 	}
-	if (path[0] && path[0] == '.')
+	if (ft_strlen(path) < 5 || (ft_strlen(path) - 4) <= 0)
 	{
 		maps_errors(5);
 		return (0);
@@ -48,7 +48,7 @@ char	**get_map(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if ((str[i] == '\n' && str[i + 1] == '\n') || ((str[0] == '\n' )
+		if ((str[i] == '\n' && str[i + 1] == '\n') || ((str[0] == '\n')
 				|| str[ft_strlen(str) - 1] == '\n'))
 		{
 			maps_errors(2);
