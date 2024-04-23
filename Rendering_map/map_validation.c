@@ -6,11 +6,11 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:22:53 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:52:33 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../src_bonus/so_long_bonus.h"
 
 int	check_extension(char *path)
 {
@@ -136,6 +136,30 @@ char	**map_validation(char *path)
 		exit(EXIT_FAILURE);
 	map = reading_map(path);
 	if (!validate_content(map) || !validation_format(map)
+		|| !validation_path(map))
+	{
+		free_map(map);
+		exit(EXIT_FAILURE);
+	}
+	return (map);
+}
+
+char **map_validation_bonus(char *path)
+{
+	char **map;
+	int fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+	{
+		function_errors(2);
+		exit(EXIT_FAILURE);
+	}
+	close(fd);
+	if (!check_extension(path))
+		exit(EXIT_FAILURE);
+	map = reading_map(path);
+	if (!validate_content_bonus(map) || !validation_format(map)
 		|| !validation_path(map))
 	{
 		free_map(map);

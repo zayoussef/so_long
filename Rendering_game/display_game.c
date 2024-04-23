@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:40:41 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:18:28 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,15 @@ void	draw_textures(t_game *so_long, int x, int y)
 	mlx_destroy_image(so_long->mlx, so_long->img);
 }
 
+// void display_counter(t_game *so_long)
+// {
+// 	char	*counter;
+
+// 	counter = ft_itoa(so_long->moves);
+// 	mlx_string_put(so_long->mlx, so_long->win, 5, 10, 0x0FFFFF, counter);
+// 	free(counter);
+// }
+
 void	display_game(t_game *so_long)
 {
 	int	x;
@@ -97,4 +106,5 @@ void	display_game(t_game *so_long)
 		}
 		x++;
 	}
+	// display_counter(so_long);
 }

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/23 16:47:12 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:51:26 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
@@ -45,7 +45,8 @@ typedef struct s_map
 	int		x;
 	int		y;
 	int		c;
-	t_pos	*player;
+	t_pos	*pos;
+	t_pos	**enemies;
 }			t_map;
 
 typedef struct s_game
@@ -55,6 +56,7 @@ typedef struct s_game
 	void	*img;
 	int		size;
 	int		moves;
+	int		placed; // placed enemies on the map using the 'N' character
 	int		direction;
 	t_map	*map;
 }			t_game;
@@ -91,6 +93,14 @@ char		**reading_map(char *path);
 char		*reading(int fd);
 char		**get_map(char *str);
 int			check_extension(char *path);
+
+/* ------------ Rendering_map_bonus ------------ */
+t_map *map_rendering_bonus(char *path);
+t_pos **find_enemies(char **map, char c);
+char **map_validation_bonus(char *path);
+int validate_content_bonus(char **map);
+t_game  *setting_game_bonus(t_map *map);
+
 
 /* ------------ Rendering_game ------------ */
 t_game		*setting_game(t_map *map);

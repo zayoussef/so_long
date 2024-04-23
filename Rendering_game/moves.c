@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/22 10:16:53 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:36:13 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	up(t_game *so_long)
 	}
 	else if (map[x - 1][y] == 'E')
 		if (so_long->map->c == 0)
-			exit(0);
+			exit(EXIT_SUCCESS);
 }
 
 void	down_action(t_game *so_long)

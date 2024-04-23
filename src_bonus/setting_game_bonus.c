@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_rendering.c                                    :+:      :+:    :+:   */
+/*   setting_game_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/23 17:05:41 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:49:20 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
-t_map	*map_rendering(char *path)
+t_game  *setting_game_bonus(t_map *map)
 {
-	t_map	*map;
-	int		i;
+    t_game *so_long;
 
-	i = 0;
-	map = malloc(sizeof(t_map));
-	if (!map)
-	{
-		function_errors(3);
-		exit(EXIT_FAILURE);
-	}
-	map->map = map_validation(path);
-	map->x = ft_strlen(map->map[0]);
-	while (map->map[i])
-		i++;
-	map->y = i;
-	map->c = count_size(map->map, 'C');
-	map->player = find_position(map->map, 'P');
-	return (map);
+    so_long->mlx = mlx_init();
+    so_long->win = mlx_new_window(so_long->mlx, map->x * 64, map->y * 64, "so_long_bonus");
+    so_long->map = map;
+    so_long->size = 64;
+    so_long->moves = 0;
+    // so_long->placed = malloc(sizeof(int) * (cound_size(map->map, 'N')));
+    so_long->direction = 0;
+    return (so_long);
 }

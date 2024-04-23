@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/22 19:40:59 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:01:25 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ t_game	*setting_game(t_map *map)
 	so_long->win = mlx_new_window(so_long->mlx, map->x * 64, map->y * 64,
 			"so_long");
 	so_long->map = map;
-	so_long->moves = 1;
+	so_long->moves = 0;
+	so_long->size = 64;
 	so_long->direction = 1;
 	return (so_long);
 }
