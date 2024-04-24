@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_game.c                                     :+:      :+:    :+:   */
+/*   display_game_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/24 20:14:35 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:25:04 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
-int	event(int key, void *param)
+int	event_bonus(int key, void *param)
 {
 	t_game	*game;
 
 	game = (t_game *)param;
 	if (key == 13 || key == 126)
-		up(game);
+		up_bonus(game);
 	else if (key == 1 || key == 125)
-		down(game);
+		down_bonus(game);
 	else if (key == 0 || key == 123)
-		left(game);
+		left_bonus(game);
 	else if (key == 2 || key == 124)
-		right(game);
+		right_bonus(game);
 	else if (key == 53)
 		free_success_exit(game);
 	mlx_clear_window(game->mlx, game->win);
-	display_game(game);
+	display_game_bonus(game);
 	mlx_loop(game->mlx);
 	return (0);
 }
 
-char	*textures_path(t_game *game, char c)
+char	*textures_path_bonus(t_game *game, char c)
 {
 	char	*path;
 
@@ -53,6 +53,8 @@ char	*textures_path(t_game *game, char c)
 		else if (game->direction == 3)
 			path = "textures/player_down.xpm";
 	}
+	else if (c == 'N')
+		path = "textures/up-_1_-_1_.xpm";
 	else if (c == 'C')
 		path = "textures/collect.xpm";
 	else if (c == 'E')
@@ -62,11 +64,11 @@ char	*textures_path(t_game *game, char c)
 	return (path);
 }
 
-void	draw_textures(t_game *so_long, int x, int y)
+void	draw_textures_bonus(t_game *so_long, int x, int y)
 {
 	char	*texture;
 
-	texture = textures_path(so_long, so_long->map->map[x][y]);
+	texture = textures_path_bonus(so_long, so_long->map->map[x][y]);
 	if (!texture)
 		return ;
 	so_long->img = mlx_xpm_file_to_image(so_long->mlx, texture, &so_long->size,
@@ -81,7 +83,16 @@ void	draw_textures(t_game *so_long, int x, int y)
 	mlx_destroy_image(so_long->mlx, so_long->img);
 }
 
-void	display_game(t_game *so_long)
+void	display_counter_bonus(t_game *so_long)
+{
+	char	*counter;
+
+	counter = ft_itoa(so_long->moves);
+	mlx_string_put(so_long->mlx, so_long->win, 8, 10, 0XFFFFFF, counter);
+	free(counter);
+}
+
+void	display_game_bonus(t_game *so_long)
 {
 	int	x;
 	int	y;
@@ -92,9 +103,10 @@ void	display_game(t_game *so_long)
 		y = 0;
 		while (so_long->map->map[x][y] && so_long->map->map[x][y] != '\n')
 		{
-			draw_textures(so_long, x, y);
+			draw_textures_bonus(so_long, x, y);
 			y++;
 		}
 		x++;
 	}
+	display_counter_bonus(so_long);
 }

@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/23 19:51:26 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:37:07 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ typedef struct s_map
 	int		y;
 	int		c;
 	t_pos	*pos;
-	t_pos	**enemies;
+	t_pos	*player;
+	t_pos	*enemies;
 }			t_map;
 
 typedef struct s_game
@@ -56,7 +57,7 @@ typedef struct s_game
 	void	*img;
 	int		size;
 	int		moves;
-	int		placed; // placed enemies on the map using the 'N' character
+	int placed; // placed enemies on the map using the 'N' character
 	int		direction;
 	t_map	*map;
 }			t_game;
@@ -95,29 +96,26 @@ char		**get_map(char *str);
 int			check_extension(char *path);
 
 /* ------------ Rendering_map_bonus ------------ */
-t_map *map_rendering_bonus(char *path);
-t_pos **find_enemies(char **map, char c);
-char **map_validation_bonus(char *path);
-int validate_content_bonus(char **map);
-t_game  *setting_game_bonus(t_map *map);
-
-
-/* ------------ Rendering_game ------------ */
-t_game		*setting_game(t_map *map);
-void		display_game(t_game *so_long);
-int			event(int key, void *param);
-char		*textures_path(t_game *game, char c);
-void		draw_textures(t_game *so_long, int x, int y);
+t_map		*map_rendering_bonus(char *path);
+t_pos		*find_enemies(char **map, char c);
+char		**map_validation_bonus(char *path);
+int			validate_content_bonus(char **map);
+t_game		*setting_game_bonus(t_map *map);
+void		display_game_bonus(t_game *so_long);
+void		draw_textures_bonus(t_game *so_long, int x, int y);
+void		display_counter_bonus(t_game *so_long);
+char		*textures_path_bonus(t_game *game, char c);
 
 /* ------------ moves ------------ */
-void		up(t_game *so_long);
-void		up_action(t_game *so_long);
-void		down(t_game *so_long);
-void		down_action(t_game *so_long);
-void		left(t_game *so_long);
-void		left_action(t_game *so_long);
-void		right(t_game *so_long);
-void		right_action(t_game *so_long);
+int			event_bonus(int key, void *param);
+void		up_bonus(t_game *so_long);
+void		up_action_bonus(t_game *so_long);
+void		down_bonus(t_game *so_long);
+void		down_action_bonus(t_game *so_long);
+void		left_bonus(t_game *so_long);
+void		left_action_bonus(t_game *so_long);
+void		right_bonus(t_game *so_long);
+void		right_action_bonus(t_game *so_long);
 
 /* ------------ free_memory ------------ */
 int			free_success_exit(void *param);

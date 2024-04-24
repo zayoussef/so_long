@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/23 19:33:54 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:18:57 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	map_elements(char **map)
 	return (1);
 }
 
-int map_elements_bonus(char **map)
+int	map_elements_bonus(char **map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (map[i])
@@ -87,7 +87,7 @@ int	validate_content(char **map)
 	return (1);
 }
 
-int validate_content_bonus(char **map)
+int	validate_content_bonus(char **map)
 {
 	if (!map_elements_bonus(map) || count_size(map, 'P') != 1 || count_size(map,
 			'E') != 1 || count_size(map, 'C') < 1 || count_size(map, 'N') < 1)

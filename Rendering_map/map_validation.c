@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/23 19:52:33 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:19:13 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,10 +144,10 @@ char	**map_validation(char *path)
 	return (map);
 }
 
-char **map_validation_bonus(char *path)
+char	**map_validation_bonus(char *path)
 {
-	char **map;
-	int fd;
+	char	**map;
+	int		fd;
 
 	fd = open(path, O_RDONLY);
 	if (fd < 0)

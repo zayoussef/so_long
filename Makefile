@@ -1,7 +1,6 @@
 NAME = so_long
-BONUS = so_long_bonus
+NAME_BONUS = so_long_bonus
 MLX =  -lmlx -framework OpenGL -framework AppKit
-# NAME_BONUS = pipex_bonus
 
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
@@ -12,9 +11,11 @@ SRC = so_long.c print_errors.c libft/ft_itoa.c libft/ft_putstr.c libft/ft_split.
 	Rendering_map/map_rendering.c Rendering_map/map_validation.c Rendering_game/setting_game.c  Rendering_game/display_game.c \
 	Rendering_game/free_memory.c Rendering_game/moves.c Rendering_game/moves_.c
 
-SRC_BONUS = pipex_bonus.c utils_bonus.c libft/ft_strlen.c libft/ft_strncmp.c libft/ft_strnstr.c libft/ft_strjoin.c \
-	libft/ft_split.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c libft/ft_putendl_fd.c utils_1_bonus.c libft/ft_strchr.c \
-	   here_doc.c utils_1.c libft/ft_strcmp.c
+SRC_BONUS = src_bonus/so_long_bonus.c src_bonus/map_rendering_bonus.c print_errors.c libft/ft_itoa.c libft/ft_putstr.c libft/ft_split.c libft/ft_strlen.c \
+	Rendering_map/check_map.c  Rendering_map/check_path.c Rendering_map/check_shape.c Rendering_map/find_position.c \
+	Rendering_map/map_rendering.c Rendering_map/map_validation.c src_bonus/display_game_bonus.c \
+	Rendering_game/free_memory.c src_bonus/setting_game_bonus.c src_bonus/moves_bonus.c \
+	src_bonus/moves2_bonus.c 
 OBG = $(SRC:.c=.o)
 
 OBG_BONUS = $(SRC_BONUS:.c=.o)
@@ -29,9 +30,9 @@ $(NAME) : $(OBG)
 bonus : $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBG_BONUS)
-	@$(CC) $(CFLAGS) $(OBG_BONUS) -o pipex
-#@echo "\033[1;34mLaunching build... 🚀\033[0m"
-#@echo "\033[0;32mmake bonus completed successfully! ✅\033[0m"
+	@$(CC) $(CFLAGS) $(OBG_BONUS) $(MLX) -o $(NAME_BONUS)
+	@echo "\033[1;34mLaunching build... 🚀\033[0m"
+	@echo "\033[0;32mmake bonus completed successfully! ✅\033[0m"
 
 clean:
 	@rm -rf $(OBG) $(OBG_BONUS)
@@ -43,7 +44,7 @@ fclean: clean
 	@echo "\033[1;31mFull clean initiated... 🔥\033[0m"
 	@echo "\033[0;32mfclean completed successfully! ✅\033[0m"
 
-re: fclean all
+re: fclean all bonus
 	@echo "\033[1;35mRebuilding everything... 🔄\033[0m"
 	@echo "\033[0;32mre completed successfully! ✅\033[0m"
 
