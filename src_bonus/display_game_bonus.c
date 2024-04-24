@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/24 20:25:04 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:33:01 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*textures_path_bonus(t_game *game, char c)
 			path = "textures/player_down.xpm";
 	}
 	else if (c == 'N')
-		path = "textures/up-_1_-_1_.xpm";
+		path = "textures/enemy.xpm";
 	else if (c == 'C')
 		path = "textures/collect.xpm";
 	else if (c == 'E')
