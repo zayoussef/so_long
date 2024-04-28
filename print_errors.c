@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/21 09:33:49 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/28 19:15:20 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,4 @@ void	maps_errors(int index)
 	else if (index == 5)
 		ft_putstr("Invalid map extention : Because it is a hidden file\n", 2);
 }
+

@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/24 20:19:13 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/28 19:58:25 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	check_extension(char *path)
 		tmp = ft_strrchr(path, '/') + 1;
 		if ((tmp[0] && tmp[0] == '.') || !tmp[0])
 		{
-			ft_putstr("Invalid map extention\n", 2);
+			ft_putstr("Invalid file extention\n", 2);
 			return (0);
 		}
 	}
-	if (ft_strlen(path) < 5 || (ft_strlen(path) - 4) <= 0)
+	if (ft_strlen(path) < 4 || (ft_strlen(path) - 4) <= 0)
 	{
-		maps_errors(5);
+		ft_putstr("Invalid file extention\n", 2);
 		return (0);
 	}
 	tmp = path + ft_strlen(path) - 4;
@@ -136,30 +136,6 @@ char	**map_validation(char *path)
 		exit(EXIT_FAILURE);
 	map = reading_map(path);
 	if (!validate_content(map) || !validation_format(map)
-		|| !validation_path(map))
-	{
-		free_map(map);
-		exit(EXIT_FAILURE);
-	}
-	return (map);
-}
-
-char	**map_validation_bonus(char *path)
-{
-	char	**map;
-	int		fd;
-
-	fd = open(path, O_RDONLY);
-	if (fd < 0)
-	{
-		function_errors(2);
-		exit(EXIT_FAILURE);
-	}
-	close(fd);
-	if (!check_extension(path))
-		exit(EXIT_FAILURE);
-	map = reading_map(path);
-	if (!validate_content_bonus(map) || !validation_format(map)
 		|| !validation_path(map))
 	{
 		free_map(map);

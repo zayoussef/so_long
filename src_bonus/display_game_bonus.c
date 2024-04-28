@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/24 20:33:01 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/28 15:27:29 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,33 +35,28 @@ int	event_bonus(int key, void *param)
 
 char	*textures_path_bonus(t_game *game, char c)
 {
-	char	*path;
-
-	path = NULL;
 	if (c == '0')
-		path = "textures/empty.xpm";
+		return ("textures/empty.xpm");
 	else if (c == '1')
-		path = "textures/wall.xpm";
+		return ("textures/wall.xpm");
 	else if (c == 'P')
 	{
 		if (game->direction == 1)
-			path = "textures/player_rigth.xpm";
+			return ("textures/player_rigth.xpm");
 		else if (game->direction == 2)
-			path = "textures/player_left.xpm";
+			return ("textures/player_left.xpm");
 		else if (game->direction == 0)
-			path = "textures/player_up.xpm";
+			return ("textures/player_up.xpm");
 		else if (game->direction == 3)
-			path = "textures/player_down.xpm";
+			return ("textures/player_down.xpm");
 	}
 	else if (c == 'N')
-		path = "textures/enemy.xpm";
+		return ("textures_enemy/enemy_1.xpm");
 	else if (c == 'C')
-		path = "textures/collect.xpm";
+		return ("textures/collect.xpm");
 	else if (c == 'E')
-		path = "textures/exit.xpm";
-	if (!path)
-		return (NULL);
-	return (path);
+		return ("textures/exit.xpm");
+	return (NULL);
 }
 
 void	draw_textures_bonus(t_game *so_long, int x, int y)

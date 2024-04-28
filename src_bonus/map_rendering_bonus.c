@@ -6,36 +6,34 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/24 16:21:17 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/25 22:49:52 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-t_pos	*find_enemies(char **map, char c)
+t_pos_list	*find_enemies(char **map, char c)
 {
-	int		i;
-	int		k;
-	int		l;
-	t_pos	*enemies;
+	t_pos_list	*new;
+	t_pos_list	*enemies;
+	int			i;
+	int			j;
 
-	i = count_size(map, c);
-	enemies = malloc(sizeof(t_pos) * (i + 1)); //
-	k = 0;
-	while (map[k])
+	enemies = NULL;
+	i = 0;
+	while (map[i])
 	{
-		l = 0;
-		while (map[k][l])
+		j = 0;
+		while (map[i][j])
 		{
-			if (map[k][l] == c)
+			if (map[i][j] == c)
 			{
-				i--;
-				enemies[i].x = l;
-				enemies[i].y = k;
+				new = ft_lstnew(j, i);
+				ft_lstadd_back(&enemies, new);
 			}
-			l++;
+			j++;
 		}
-		k++;
+		i++;
 	}
 	return (enemies);
 }

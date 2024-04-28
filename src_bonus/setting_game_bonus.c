@@ -6,22 +6,44 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/24 16:57:21 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/28 15:20:10 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-t_game	*setting_game_bonus(t_map *map)
+char	**map_validation_bonus(char *path)
 {
-	t_game *so_long;
+	char	**map;
+	int		fd;
 
-	so_long = malloc(sizeof(t_game));
-	if (!so_long)
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
 	{
-		function_errors(3);
+		function_errors(2);
 		exit(EXIT_FAILURE);
 	}
+	close(fd);
+	if (!check_extension(path))
+		exit(EXIT_FAILURE);
+	map = reading_map(path);
+	if (!validate_content_bonus(map) || !validation_format(map)
+		|| !validation_path(map))
+	{
+		free_map(map);
+		exit(EXIT_FAILURE);
+	}
+	return (map);
+}
+
+t_game	*setting_game_bonus(t_map *map)
+{
+	t_game	*so_long;
+
+	so_long = malloc(sizeof(t_game));
+	so_long->image = malloc(sizeof(t_img));
+	if (!so_long || !so_long->image)
+		return (NULL);
 	so_long->mlx = mlx_init();
 	if (map->x * 64 > MAX_WIDTH || map->y * 64 > MAX_HEIGHT)
 	{
@@ -29,9 +51,11 @@ t_game	*setting_game_bonus(t_map *map)
 		free(so_long);
 		free_map(map->map);
 		free(map->enemies);
-		free(map);
+		free(map->player);
+		free(so_long->image);
 		exit(EXIT_FAILURE);
 	}
+	enemy_images_bonus(so_long);
 	so_long->win = mlx_new_window(so_long->mlx, map->x * 64, map->y * 64,
 			"so_long_bonus");
 	so_long->map = map;

@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/24 19:41:18 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/28 18:40:56 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	free_success_exit(void *param)
 	t_game	*game;
 
 	game = (t_game *)param;
-	free_map(game->map->map);
-	free(game->map);
 	free(game);
 	exit(EXIT_SUCCESS);
 	return (1);
@@ -29,8 +27,6 @@ int	free_failure_exit(void *param)
 	t_game	*game;
 
 	game = (t_game *)param;
-	free_map(game->map->map);
-	free(game->map);
 	free(game);
 	exit(EXIT_FAILURE);
 	return (1);

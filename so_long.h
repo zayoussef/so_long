@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/23 16:47:12 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/28 18:50:31 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void		left(t_game *so_long);
 void		left_action(t_game *so_long);
 void		right(t_game *so_long);
 void		right_action(t_game *so_long);
+void		you_winn_2(t_game *so_long);
 
 /* ------------ free_memory ------------ */
 int			free_success_exit(void *param);

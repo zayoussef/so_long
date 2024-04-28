@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/24 20:18:57 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/28 19:44:11 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	validate_content(char **map)
 int	validate_content_bonus(char **map)
 {
 	if (!map_elements_bonus(map) || count_size(map, 'P') != 1 || count_size(map,
-			'E') != 1 || count_size(map, 'C') < 1 || count_size(map, 'N') < 1)
+			'E') != 1 || count_size(map, 'C') < 1 )
 	{
 		maps_errors(2);
 		return (0);
