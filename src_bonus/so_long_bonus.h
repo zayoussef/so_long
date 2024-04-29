@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/28 18:50:36 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/29 18:00:14 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,15 @@ typedef struct s_image
 	void				*img2;
 	void				*img3;
 	void				*img4;
+	void				*img5;
+	void				*img6;
+	void				*img7;
+	void				*img8;
+	void				*img9;
+	void				*img10;
+	void				*img11;
+	void				*img12;
+	void				*img13;
 }						t_img;
 
 typedef struct s_game
@@ -122,7 +131,6 @@ t_game					*setting_game_bonus(t_map *map);
 void					display_game_bonus(t_game *so_long);
 void					draw_textures_bonus(t_game *so_long, int x, int y);
 void					display_counter_bonus(t_game *so_long);
-char					*textures_path_bonus(t_game *game, char c);
 
 /* ------------ moves ------------ */
 int						event_bonus(int key, void *param);
@@ -150,7 +158,7 @@ void					ft_swap_enemy_right(t_pos_list *tmp, int i, int j,
 void					ft_swap_enemy_left(t_pos_list *tmp, int i, int j,
 							t_game *so_long);
 int						function_enemy(t_game *so_long);
-void					enemy_images_bonus(t_game *so_long);
+void					get_images(t_game *so_long);
 void					game_over(t_game *so_long);
 void					you_winn(t_game *so_long);
 

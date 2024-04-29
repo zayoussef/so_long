@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/28 15:27:29 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:59:03 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,49 +33,41 @@ int	event_bonus(int key, void *param)
 	return (0);
 }
 
-char	*textures_path_bonus(t_game *game, char c)
+void	get_images_3(t_game *so_long, int x, int y)
 {
-	if (c == '0')
-		return ("textures/empty.xpm");
-	else if (c == '1')
-		return ("textures/wall.xpm");
-	else if (c == 'P')
-	{
-		if (game->direction == 1)
-			return ("textures/player_rigth.xpm");
-		else if (game->direction == 2)
-			return ("textures/player_left.xpm");
-		else if (game->direction == 0)
-			return ("textures/player_up.xpm");
-		else if (game->direction == 3)
-			return ("textures/player_down.xpm");
-	}
-	else if (c == 'N')
-		return ("textures_enemy/enemy_1.xpm");
-	else if (c == 'C')
-		return ("textures/collect.xpm");
-	else if (c == 'E')
-		return ("textures/exit.xpm");
-	return (NULL);
+	if (so_long->direction == 1)
+		mlx_put_image_to_window(so_long->mlx, so_long->win,
+			so_long->image->img12, y * 64, x * 64);
+	else if (so_long->direction == 2)
+		mlx_put_image_to_window(so_long->mlx, so_long->win,
+			so_long->image->img11, y * 64, x * 64);
+	else if (so_long->direction == 0)
+		mlx_put_image_to_window(so_long->mlx, so_long->win,
+			so_long->image->img7, y * 64, x * 64);
+	else if (so_long->direction == 3)
+		mlx_put_image_to_window(so_long->mlx, so_long->win,
+			so_long->image->img10, y * 64, x * 64);
 }
 
 void	draw_textures_bonus(t_game *so_long, int x, int y)
 {
-	char	*texture;
-
-	texture = textures_path_bonus(so_long, so_long->map->map[x][y]);
-	if (!texture)
-		return ;
-	so_long->img = mlx_xpm_file_to_image(so_long->mlx, texture, &so_long->size,
-			&so_long->size);
-	if (!so_long->img)
-	{
-		ft_putstr("Invalid file xpm content\n", 2);
-		free_failure_exit(so_long);
-	}
-	mlx_put_image_to_window(so_long->mlx, so_long->win, so_long->img, y * 64, x
-		* 64);
-	mlx_destroy_image(so_long->mlx, so_long->img);
+	if (so_long->map->map[x][y] == 'N')
+		mlx_put_image_to_window(so_long->mlx, so_long->win,
+			so_long->image->img1, y * 64, x * 64);
+	else if (so_long->map->map[x][y] == 'C')
+		mlx_put_image_to_window(so_long->mlx, so_long->win,
+			so_long->image->img5, y * 64, x * 64);
+	else if (so_long->map->map[x][y] == 'E')
+		mlx_put_image_to_window(so_long->mlx, so_long->win,
+			so_long->image->img6, y * 64, x * 64);
+	else if (so_long->map->map[x][y] == 'P')
+		get_images_3(so_long, x, y);
+	else if (so_long->map->map[x][y] == '1')
+		mlx_put_image_to_window(so_long->mlx, so_long->win,
+			so_long->image->img8, y * 64, x * 64);
+	else if (so_long->map->map[x][y] == '0')
+		mlx_put_image_to_window(so_long->mlx, so_long->win,
+			so_long->image->img9, y * 64, x * 64);
 }
 
 void	display_counter_bonus(t_game *so_long)

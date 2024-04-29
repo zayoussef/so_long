@@ -39,4 +39,3 @@ void	maps_errors(int index)
 	else if (index == 5)
 		ft_putstr("Invalid map extention : Because it is a hidden file\n", 2);
 }
-

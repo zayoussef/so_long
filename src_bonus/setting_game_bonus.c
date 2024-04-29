@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/28 15:20:10 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:04:12 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ t_game	*setting_game_bonus(t_map *map)
 	if (map->x * 64 > MAX_WIDTH || map->y * 64 > MAX_HEIGHT)
 	{
 		ft_putstr("Map too big\n", 2);
-		free(so_long);
-		free_map(map->map);
 		free(map->enemies);
 		free(map->player);
+		free_map(map->map);
 		free(so_long->image);
+		free(so_long);
 		exit(EXIT_FAILURE);
 	}
-	enemy_images_bonus(so_long);
+	get_images(so_long);
 	so_long->win = mlx_new_window(so_long->mlx, map->x * 64, map->y * 64,
 			"so_long_bonus");
 	so_long->map = map;

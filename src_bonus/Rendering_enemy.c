@@ -14,13 +14,13 @@
 
 void	game_over(t_game *so_long)
 {
-	ft_putstr ("\t\tGAME OVER !\t\t\n", 1);
+	ft_putstr("\t\tGAME OVER !\t\t\n", 1);
 	free_success_exit(so_long);
 }
 
 void	you_winn(t_game *so_long)
 {
-	ft_putstr ("\t\tYOU WINN !\t\t\n", 1);
+	ft_putstr("\t\tYOU WINN !\t\t\n", 1);
 	free_success_exit(so_long);
 }
 
