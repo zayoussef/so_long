@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/29 19:16:14 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/30 12:58:38 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,8 @@ void	get_images(t_game *so_long)
 
 int	free_clean_way(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->image->img1);
-	mlx_destroy_image(game->mlx, game->image->img2);
-	mlx_destroy_image(game->mlx, game->image->img3);
-	mlx_destroy_image(game->mlx, game->image->img4);
-	mlx_destroy_image(game->mlx, game->image->img5);
-	mlx_destroy_image(game->mlx, game->image->img6);
-	mlx_destroy_image(game->mlx, game->image->img7);
-	mlx_destroy_image(game->mlx, game->image->img8);
-	mlx_destroy_image(game->mlx, game->image->img9);
-	mlx_destroy_image(game->mlx, game->image->img10);
-	mlx_destroy_image(game->mlx, game->image->img11);
-	mlx_destroy_image(game->mlx, game->image->img12);
-	mlx_destroy_image(game->mlx, game->image->img13);
-	mlx_destroy_image(game->mlx, game->image);
-	mlx_destroy_image(game->mlx, game);
-	mlx_destroy_window(game->mlx, game->win);
-	free(game->image);
 	free_map(game->map->map);
+	free(game->image);
 	free(game->mlx);
 	free(game);
 	exit(EXIT_SUCCESS);
@@ -94,7 +78,7 @@ int	main(int ac, char **av)
 	map = map_rendering_bonus(av[1]);
 	if (!map)
 		exit(EXIT_FAILURE);
-	so_long = setting_game_bonus(map);
+	so_long = setup_game_bonus(map);
 	display_game_bonus(so_long);
 	mlx_hook(so_long->win, 2, 0, &event_bonus, so_long);
 	mlx_loop_hook(so_long->mlx, &function_enemy, so_long);

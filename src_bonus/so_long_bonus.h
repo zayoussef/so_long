@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/29 18:00:14 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/30 10:15:35 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,9 @@ t_pos_list				*ft_lstnew(int x, int y);
 t_pos_list				*ft_lstlast(t_pos_list *lst);
 
 /* ------------ Rendering_maps ------------ */
-int						validate_content(char **map);
+int						validation_content(char **map);
 int						count_size(char **map, char c);
-int						map_elements(char **map);
+int						check_elements(char **map);
 int						validation_path(char **map);
 int						is_still(char **map);
 void					check_valid_path(char **map, int x, int y);
@@ -126,8 +126,8 @@ int						check_extension(char *path);
 t_map					*map_rendering_bonus(char *path);
 t_pos_list				*find_enemies(char **map, char c);
 char					**map_validation_bonus(char *path);
-int						validate_content_bonus(char **map);
-t_game					*setting_game_bonus(t_map *map);
+int						validation_content_bonus(char **map);
+t_game					*setup_game_bonus(t_map *map);
 void					display_game_bonus(t_game *so_long);
 void					draw_textures_bonus(t_game *so_long, int x, int y);
 void					display_counter_bonus(t_game *so_long);

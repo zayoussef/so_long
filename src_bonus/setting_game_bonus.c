@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setting_game_bonus.c                               :+:      :+:    :+:   */
+/*   setup_game_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/29 17:04:12 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/30 09:35:15 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**map_validation_bonus(char *path)
 	if (!check_extension(path))
 		exit(EXIT_FAILURE);
 	map = reading_map(path);
-	if (!validate_content_bonus(map) || !validation_format(map)
+	if (!validation_content_bonus(map) || !validation_format(map)
 		|| !validation_path(map))
 	{
 		free_map(map);
@@ -36,7 +36,7 @@ char	**map_validation_bonus(char *path)
 	return (map);
 }
 
-t_game	*setting_game_bonus(t_map *map)
+t_game	*setup_game_bonus(t_map *map)
 {
 	t_game	*so_long;
 

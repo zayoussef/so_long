@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/28 19:58:25 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/30 09:35:15 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ char	**map_validation(char *path)
 	if (!check_extension(path))
 		exit(EXIT_FAILURE);
 	map = reading_map(path);
-	if (!validate_content(map) || !validation_format(map)
+	if (!validation_content(map) || !validation_format(map)
 		|| !validation_path(map))
 	{
 		free_map(map);

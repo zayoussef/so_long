@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setting_game.c                                     :+:      :+:    :+:   */
+/*   setup_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-t_game	*setting_game(t_map *map)
+t_game	*setup_game(t_map *map)
 {
 	t_game	*so_long;
 

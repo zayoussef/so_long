@@ -48,4 +48,6 @@ re: fclean all bonus
 	@echo "\033[1;35mRebuilding everything... 🔄\033[0m"
 	@echo "\033[0;32mre completed successfully! ✅\033[0m"
 
+.PHONY: all clean fclean re bonus
+
 .SILENT:

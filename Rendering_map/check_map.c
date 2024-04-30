@@ -6,13 +6,13 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/29 18:37:41 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/30 09:35:53 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	map_elements(char **map)
+int	check_elements(char **map)
 {
 	int	i;
 	int	j;
@@ -33,7 +33,7 @@ int	map_elements(char **map)
 	return (1);
 }
 
-int	map_elements_bonus(char **map)
+int	check_elements_bonus(char **map)
 {
 	int	i;
 	int	j;
@@ -76,9 +76,9 @@ int	count_size(char **map, char c)
 	return (count);
 }
 
-int	validate_content(char **map)
+int	validation_content(char **map)
 {
-	if (!map_elements(map) || count_size(map, 'P') != 1 || count_size(map,
+	if (!check_elements(map) || count_size(map, 'P') != 1 || count_size(map,
 			'E') != 1 || count_size(map, 'C') < 1)
 	{
 		maps_errors(2);
@@ -87,10 +87,10 @@ int	validate_content(char **map)
 	return (1);
 }
 
-int	validate_content_bonus(char **map)
+int	validation_content_bonus(char **map)
 {
-	if (!map_elements_bonus(map) || count_size(map, 'P') != 1 || count_size(map,
-			'E') != 1 || count_size(map, 'C') < 1)
+	if (!check_elements_bonus(map) || count_size(map, 'P') != 1
+		|| count_size(map, 'E') != 1 || count_size(map, 'C') < 1)
 	{
 		maps_errors(2);
 		return (0);

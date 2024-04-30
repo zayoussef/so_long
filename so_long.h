@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:26:53 by yozainan          #+#    #+#             */
-/*   Updated: 2024/04/28 18:50:31 by yozainan         ###   ########.fr       */
+/*   Updated: 2024/04/30 12:46:47 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ char		*ft_strdup(char *s);
 char		**ft_split(char const *s, char c);
 
 /* ------------ Rendering_maps ------------ */
-int			validate_content(char **map);
+int			validation_content(char **map);
 int			count_size(char **map, char c);
-int			map_elements(char **map);
+int			check_elements(char **map);
 int			validation_path(char **map);
 int			is_still(char **map);
 void		check_valid_path(char **map, int x, int y);
@@ -93,7 +93,7 @@ char		**get_map(char *str);
 int			check_extension(char *path);
 
 /* ------------ Rendering_game ------------ */
-t_game		*setting_game(t_map *map);
+t_game		*setup_game(t_map *map);
 void		display_game(t_game *so_long);
 int			event(int key, void *param);
 char		*textures_path(t_game *game, char c);
