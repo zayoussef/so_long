@@ -27,8 +27,6 @@ t_game	*setup_game(t_map *map)
 	{
 		ft_putstr("Map too big\n", 2);
 		free_map(map->map);
-		free(map->player);
-		free(map);
 		free(so_long);
 		exit(EXIT_FAILURE);
 	}

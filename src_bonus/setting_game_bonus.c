@@ -48,10 +48,7 @@ t_game	*setup_game_bonus(t_map *map)
 	if (map->x * 64 > MAX_WIDTH || map->y * 64 > MAX_HEIGHT)
 	{
 		ft_putstr("Map too big\n", 2);
-		free(map->enemies);
-		free(map->player);
 		free_map(map->map);
-		free(so_long->image);
 		free(so_long);
 		exit(EXIT_FAILURE);
 	}
